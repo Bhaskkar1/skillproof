@@ -31,7 +31,7 @@ const InternshipSkill = require('./models/InternshipSkill');
 const Project = require('./models/Project');
 const Role = require('./models/Role');
 const RoleSkill = require('./models/RoleSkill');
-sequelize.sync({ alter: true }).then(() => {
+sequelize.sync().then(() =>  {
   console.log("✅ Models synced with MySQL");
 });
 

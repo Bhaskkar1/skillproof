@@ -655,3 +655,19 @@ button:focus-visible { outline: 2px solid var(--verified); outline-offset: 2px; 
   text-decoration: none;
   display: block;
 }
+.dash-nav-item {
+  text-decoration: none;
+  display: block;
+}
+.browse-internship-card {
+  border: 1px solid var(--paper-line);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.browse-internship-info { flex: 1; }
+.browse-internship-title { font-family: 'Fraunces', serif; font-size: 17px; margin-bottom: 4px; }
+.browse-internship-desc { font-size: 13.5px; color: var(--text-soft); margin-bottom: 10px; }

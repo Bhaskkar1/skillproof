@@ -4,7 +4,7 @@ const role = localStorage.getItem('role');
 if (!token || role !== 'employer') {
   window.location.href = 'login.html';
 }
-
+document.getElementById('user-email').textContent = localStorage.getItem('email') || 'Employer';
 document.getElementById('logout-btn').addEventListener('click', () => {
   localStorage.clear();
   window.location.href = 'login.html';
