@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillProof — Skill Passport</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="page">
+
+  <aside class="passport-panel">
+    <div class="brand">
+      <span class="brand-mark">SP</span>
+      <span class="brand-name">SkillProof</span>
+    </div>
+
+    <div class="id-card">
+      <div class="id-card-header">
+        <span>SKILL PASSPORT</span>
+        <span>NO. 0001</span>
+      </div>
+      <div class="id-photo"></div>
+      <div class="id-lines">
+        <div class="id-line"></div>
+        <div class="id-line short"></div>
+      </div>
+      <div class="id-barcode">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span>
+      </div>
+
+      <div class="stamp">
+        <svg viewBox="0 0 100 100">
+          <defs>
+            <path id="stampCircle" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" />
+          </defs>
+          <text font-family="JetBrains Mono" font-size="7.2" fill="#C9A227" letter-spacing="2">
+            <textPath href="#stampCircle" startOffset="0%">
+              VERIFIED • VERIFIED • VERIFIED •
+            </textPath>
+          </text>
+        </svg>
+        <div class="stamp-core"></div>
+      </div>
+    </div>
+
+    <p class="tagline">VERIFY → PROVE → MATCH → EXPLAIN</p>
+  </aside>
+
+  <main class="form-panel">
+    <div class="form-card">
+      <span class="eyebrow" id="form-eyebrow">FIELD 01 — ACCESS</span>
+      <h1 id="form-title">Welcome back</h1>
+      <p class="subtitle" id="form-subtitle">Log in to your skill passport.</p>
+
+      <form id="auth-form">
+        <div id="name-field" style="display:none;">
+          <label>Name</label>
+          <input type="text" id="name" placeholder="Your full name">
+        </div>
+
+        <label>Email</label>
+        <input type="email" id="email" required placeholder="you@example.com">
+
+        <label>Password</label>
+        <input type="password" id="password" required placeholder="••••••••">
+
+        <div id="role-field" style="display:none;">
+          <label>Role</label>
+          <select id="role">
+            <option value="student">Student</option>
+            <option value="issuer">Issuer</option>
+            <option value="employer">Employer</option>
+          </select>
+        </div>
+
+        <button type="submit" id="submit-btn">Log in</button>
+        <p class="error-msg" id="error-msg"></p>
+      </form>
+
+      <p class="toggle-link">
+        <span id="toggle-text">Don't have a passport yet?</span>
+        <a id="toggle-link">Register</a>
+      </p>
+    </div>
+  </main>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillProof — Issuer Console</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="dash">
+
+  <aside class="dash-sidebar">
+    <div>
+      <div class="brand">
+        <span class="brand-mark">SP</span>
+        <span class="brand-name">SkillProof</span>
+      </div>
+      <nav class="dash-nav">
+        <span class="dash-nav-item active">Pending Verifications</span>
+      </nav>
+    </div>
+    <div class="dash-user">
+      <div class="email" id="user-email">Issuer</div>
+      <button class="logout-btn" id="logout-btn">Log out</button>
+    </div>
+  </aside>
+
+  <main class="dash-main">
+    <div class="dash-header">
+      <span class="eyebrow">ISSUER PORTAL</span>
+      <h1>Verification Queue</h1>
+    </div>
+
+    <div class="dash-card">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+        <div>
+          <h2 style="margin-bottom:2px;">Pending skills</h2>
+          <p class="card-sub" style="margin-bottom:0;">Review the evidence, then verify or revoke.</p>
+        </div>
+        <span class="queue-count" id="queue-count">0 pending</span>
+      </div>
+
+      <div id="queue-list">
+        <!-- filled by JS -->
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/issuer.js"></script>
+</body>
+</html>

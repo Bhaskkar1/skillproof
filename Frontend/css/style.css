@@ -1,0 +1,657 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --ink: #0B1D33;
+  --ink-2: #142a4d;
+  --paper: #F7F4EC;
+  --paper-line: #E4DFD0;
+  --text: #1B2333;
+  --text-soft: #5B6472;
+  --verified: #1F8A70;
+  --gold: #C9A227;
+  --stamp-red: #A63A3A;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: var(--paper);
+}
+
+.page {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  min-height: 100vh;
+}
+
+/* ---------- LEFT: passport cover ---------- */
+.passport-panel {
+  background:
+    radial-gradient(circle at 20% 15%, rgba(201,162,39,0.08), transparent 40%),
+    var(--ink);
+  color: #E9E4D8;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; }
+
+.brand-mark {
+  width: 34px; height: 34px;
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--gold);
+}
+
+.brand-name {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  letter-spacing: 0.3px;
+}
+
+/* ID card */
+.id-card {
+  background: var(--ink-2);
+  border: 1px solid rgba(201,162,39,0.25);
+  border-radius: 14px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.id-card-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: rgba(233,228,216,0.55);
+  margin-bottom: 20px;
+}
+
+.id-photo {
+  width: 56px; height: 56px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2a3f63, #1c2d4d);
+  border: 1px solid rgba(201,162,39,0.3);
+  margin-bottom: 18px;
+}
+
+.id-lines { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+
+.id-line { height: 6px; border-radius: 3px; background: rgba(233,228,216,0.14); width: 100%; }
+.id-line.short { width: 60%; }
+
+/* barcode strip = "evidence" motif */
+.id-barcode {
+  display: flex;
+  gap: 2px;
+  height: 22px;
+  align-items: flex-end;
+  margin-bottom: 6px;
+}
+.id-barcode span {
+  flex: 1;
+  background: rgba(201,162,39,0.4);
+}
+.id-barcode span:nth-child(3n) { height: 100%; }
+.id-barcode span:nth-child(3n+1) { height: 60%; }
+.id-barcode span:nth-child(3n+2) { height: 80%; }
+
+/* the stamp — signature element */
+.stamp {
+  position: absolute;
+  top: 18px; right: 18px;
+  width: 78px; height: 78px;
+}
+.stamp svg { width: 100%; height: 100%; animation: spin 18s linear infinite; }
+.stamp-core {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px; height: 30px;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+}
+
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.tagline {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: rgba(233,228,216,0.6);
+}
+
+/* ---------- RIGHT: passport page / form ---------- */
+.form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px, transparent 38px, var(--paper-line) 39px
+  );
+  background-position: 0 160px;
+}
+
+.form-card {
+  width: 100%;
+  max-width: 380px;
+}
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--verified);
+  display: block;
+  margin-bottom: 10px;
+}
+
+h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 30px;
+  margin-bottom: 6px;
+}
+
+.subtitle { color: var(--text-soft); font-size: 14px; margin-bottom: 28px; }
+
+label {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.8px;
+  color: var(--text-soft);
+  margin-top: 18px;
+  margin-bottom: 7px;
+  text-transform: uppercase;
+}
+
+input, select {
+  width: 100%;
+  padding: 11px 12px;
+  border: none;
+  border-bottom: 1.5px solid var(--paper-line);
+  background: transparent;
+  font-size: 14.5px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-bottom-color: var(--verified);
+}
+
+button {
+  width: 100%;
+  margin-top: 28px;
+  padding: 13px;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  border-radius: 7px;
+  font-size: 14.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover { background: var(--ink-2); }
+button:focus-visible { outline: 2px solid var(--verified); outline-offset: 2px; }
+
+.toggle-link {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 13.5px;
+  color: var(--text-soft);
+}
+
+.toggle-link a {
+  color: var(--verified);
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.error-msg {
+  color: var(--stamp-red);
+  font-size: 13px;
+  margin-top: 14px;
+  text-align: center;
+}
+
+/* mobile */
+@media (max-width: 800px) {
+  .page { grid-template-columns: 1fr; }
+  .passport-panel { padding: 28px 24px; }
+  .id-card { display: none; }
+  .form-panel { padding: 28px 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp svg { animation: none; }
+}
+/* ---------- DASHBOARD LAYOUT ---------- */
+.dash {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+}
+
+.dash-sidebar {
+  background: var(--ink);
+  color: #E9E4D8;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.dash-sidebar .brand { margin-bottom: 48px; }
+
+.dash-nav { display: flex; flex-direction: column; gap: 4px; }
+
+.dash-nav-item {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  color: rgba(233,228,216,0.55);
+  padding: 10px 12px;
+  border-radius: 6px;
+}
+
+.dash-nav-item.active {
+  background: rgba(201,162,39,0.12);
+  color: var(--gold);
+}
+
+.dash-user {
+  border-top: 1px solid rgba(233,228,216,0.15);
+  padding-top: 18px;
+  font-size: 13px;
+}
+
+.dash-user .email { color: rgba(233,228,216,0.7); margin-bottom: 10px; word-break: break-all; }
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid rgba(233,228,216,0.3);
+  color: #E9E4D8;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12.5px;
+  cursor: pointer;
+  width: 100%;
+}
+.logout-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+.dash-main {
+  background-image: repeating-linear-gradient(
+    to bottom, transparent 0px, transparent 38px, var(--paper-line) 39px
+  );
+  padding: 48px 56px;
+  overflow-y: auto;
+}
+
+.dash-header { margin-bottom: 36px; }
+
+.dash-card {
+  background: #fff;
+  border: 1px solid var(--paper-line);
+  border-radius: 12px;
+  padding: 26px 28px;
+  margin-bottom: 28px;
+}
+
+.dash-card h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 19px;
+  margin-bottom: 4px;
+}
+
+.dash-card .card-sub { color: var(--text-soft); font-size: 13.5px; margin-bottom: 20px; }
+
+.inline-form {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.inline-form label { margin-top: 0; }
+
+.inline-form button {
+  margin-top: 0;
+  width: auto;
+  padding: 11px 18px;
+  white-space: nowrap;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.skill-card {
+  border: 1px solid var(--paper-line);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.skill-name {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.skill-category {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.6px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.status-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+}
+
+.status-verified { background: rgba(31,138,112,0.1); color: var(--verified); }
+.status-verified::before { background: var(--verified); }
+
+.status-pending { background: rgba(201,162,39,0.1); color: var(--gold); }
+.status-pending::before { background: var(--gold); }
+
+.status-revoked { background: rgba(166,58,58,0.1); color: var(--stamp-red); }
+.status-revoked::before { background: var(--stamp-red); }
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-soft);
+  font-size: 14px;
+}
+
+.qr-box {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.qr-box img { width: 120px; height: 120px; border: 1px solid var(--paper-line); border-radius: 8px; }
+
+.link-btn {
+  background: transparent;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  padding: 10px 16px;
+  border-radius: 7px;
+  font-size: 13.5px;
+  cursor: pointer;
+}
+.link-btn:hover { background: var(--ink); color: var(--paper); }
+
+@media (max-width: 900px) {
+  .dash { grid-template-columns: 1fr; }
+  .dash-sidebar { flex-direction: row; justify-content: space-between; align-items: center; padding: 18px 20px; }
+  .dash-nav, .dash-user { display: none; }
+  .dash-main { padding: 28px 20px; }
+  .inline-form { grid-template-columns: 1fr; }
+}
+/* ---------- ISSUER QUEUE ---------- */
+.queue-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--paper-line);
+}
+.queue-item:last-child { border-bottom: none; }
+
+.queue-info { flex: 1; }
+
+.queue-student {
+  font-family: 'Fraunces', serif;
+  font-size: 15.5px;
+  margin-bottom: 3px;
+}
+
+.queue-skill {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text-soft);
+}
+.queue-skill .cat { color: var(--gold); }
+
+.queue-evidence {
+  font-size: 12.5px;
+  color: var(--text-soft);
+  margin-top: 4px;
+}
+.queue-evidence a { color: var(--verified); }
+
+.queue-actions { display: flex; gap: 10px; }
+
+.btn-verify, .btn-revoke {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.5px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn-verify { background: var(--verified); color: #fff; }
+.btn-verify:hover { background: #1a7861; }
+
+.btn-revoke { background: transparent; border-color: var(--stamp-red); color: var(--stamp-red); }
+.btn-revoke:hover { background: rgba(166,58,58,0.08); }
+
+.queue-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text-soft);
+}
+/* ---------- EMPLOYER: internship + candidates ---------- */
+.internship-item {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--paper-line);
+  cursor: pointer;
+}
+.internship-item:last-child { border-bottom: none; }
+.internship-item:hover .internship-title { color: var(--verified); }
+
+.internship-title {
+  font-family: 'Fraunces', serif;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.internship-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  color: var(--text-soft);
+}
+
+.chip-input-hint {
+  font-size: 12px;
+  color: var(--text-soft);
+  margin-top: 4px;
+}
+
+.candidate-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--paper-line);
+}
+.candidate-row:last-child { border-bottom: none; }
+
+.match-ring {
+  position: relative;
+  width: 56px; height: 56px;
+  flex-shrink: 0;
+}
+.match-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.match-ring-bg { fill: none; stroke: var(--paper-line); stroke-width: 5; }
+.match-ring-fg { fill: none; stroke: var(--verified); stroke-width: 5; stroke-linecap: round; transition: stroke-dasharray 0.6s ease; }
+.match-ring-label {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.candidate-info { flex: 1; }
+.candidate-name { font-family: 'Fraunces', serif; font-size: 15.5px; margin-bottom: 6px; }
+
+.tag-row { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10.5px;
+  padding: 3px 9px;
+  border-radius: 20px;
+}
+.tag-matched { background: rgba(31,138,112,0.1); color: var(--verified); }
+.tag-missing { background: rgba(166,58,58,0.08); color: var(--stamp-red); }
+
+.back-link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text-soft);
+  cursor: pointer;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+.back-link:hover { color: var(--verified); }
+/* ---------- TEAM BUILDER ---------- */
+.role-input-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr auto;
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 14px;
+}
+
+.role-input-row label { margin-top: 0; }
+
+.remove-role-btn {
+  background: transparent;
+  border: 1px solid var(--stamp-red);
+  color: var(--stamp-red);
+  padding: 10px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  height: fit-content;
+}
+.remove-role-btn:hover { background: rgba(166,58,58,0.08); }
+
+.add-role-btn {
+  background: transparent;
+  border: 1px dashed var(--text-soft);
+  color: var(--text-soft);
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  width: 100%;
+  margin-top: 4px;
+}
+.add-role-btn:hover { border-color: var(--verified); color: var(--verified); }
+
+.coverage-banner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--paper-line);
+  margin-bottom: 20px;
+}
+
+.coverage-number {
+  font-family: 'Fraunces', serif;
+  font-size: 42px;
+  color: var(--verified);
+}
+
+.coverage-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.6px;
+  color: var(--text-soft);
+  text-transform: uppercase;
+}
+
+.role-result-card {
+  border: 1px solid var(--paper-line);
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+
+.role-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.role-result-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.6px;
+  color: var(--text-soft);
+  text-transform: uppercase;
+}
+
+.role-recommended {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.role-recommended .candidate-name { margin-bottom: 2px; }
+
+.no-candidate {
+  color: var(--text-soft);
+  font-size: 13.5px;
+  font-style: italic;
+}
+.dash-nav-item {
+  text-decoration: none;
+  display: block;
+}

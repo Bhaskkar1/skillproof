@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillProof — My Passport</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="dash">
+
+  <aside class="dash-sidebar">
+    <div>
+      <div class="brand">
+        <span class="brand-mark">SP</span>
+        <span class="brand-name">SkillProof</span>
+      </div>
+      <nav class="dash-nav">
+  <a href="student-dashboard.html" class="dash-nav-item active">My Passport</a>
+  <a href="team-builder.html" class="dash-nav-item">Teams</a>
+</nav>
+    </div>
+    <div class="dash-user">
+      <div class="email" id="user-email">—</div>
+      <button class="logout-btn" id="logout-btn">Log out</button>
+    </div>
+  </aside>
+
+  <main class="dash-main">
+    <div class="dash-header">
+      <span class="eyebrow">STUDENT PORTAL</span>
+      <h1 id="page-title">My Skill Passport</h1>
+    </div>
+
+    <!-- Shown only if no profile exists yet -->
+    <div class="dash-card" id="create-profile-card" style="display:none;">
+      <h2>Set up your passport</h2>
+      <p class="card-sub">This is created once — it holds your name, bio, and every skill you add.</p>
+      <form id="create-profile-form">
+        <label>Full name</label>
+        <input type="text" id="cp-name" required placeholder="Rahul Sharma">
+        <label>Short bio</label>
+        <input type="text" id="cp-bio" placeholder="CS student interested in backend dev">
+        <button type="submit">Create passport</button>
+      </form>
+    </div>
+
+    <!-- Shown once profile exists -->
+    <div id="passport-content" style="display:none;">
+
+      <div class="dash-card">
+        <h2 id="profile-name">—</h2>
+        <p class="card-sub" id="profile-bio">—</p>
+        <div class="qr-box">
+          <button class="link-btn" id="get-qr-btn">Show QR / public link</button>
+          <img id="qr-image" style="display:none;">
+        </div>
+      </div>
+
+      <div class="dash-card">
+        <h2>Add a skill</h2>
+        <p class="card-sub">New skills start as <strong>pending</strong> until an issuer verifies them.</p>
+        <form class="inline-form" id="add-skill-form">
+          <div>
+            <label>Skill</label>
+            <input type="text" id="skill-name" required placeholder="e.g. Spring Boot">
+          </div>
+          <div>
+            <label>Category</label>
+            <input type="text" id="skill-category" placeholder="Backend">
+          </div>
+          <div>
+            <label>Evidence type</label>
+            <select id="skill-evidence-type">
+              <option value="coursework">Coursework</option>
+              <option value="project">Project</option>
+              <option value="certificate">Certificate</option>
+              <option value="competition">Competition</option>
+            </select>
+          </div>
+          <div>
+            <label>Evidence link</label>
+            <input type="text" id="skill-evidence-link" placeholder="Optional URL">
+          </div>
+          <button type="submit">Add</button>
+        </form>
+        <p class="error-msg" id="skill-error"></p>
+      </div>
+
+      <div class="dash-card">
+        <h2>Your skills</h2>
+        <div class="skills-grid" id="skills-grid">
+          <!-- filled by JS -->
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/student.js"></script>
+</body>
+</html>

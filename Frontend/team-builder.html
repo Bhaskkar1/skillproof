@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillProof — Team Builder</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="dash">
+
+  <aside class="dash-sidebar">
+    <div>
+      <div class="brand">
+        <span class="brand-mark">SP</span>
+        <span class="brand-name">SkillProof</span>
+      </div>
+      <nav class="dash-nav">
+        <span class="dash-nav-item active">Team Builder</span>
+      </nav>
+    </div>
+    <div class="dash-user">
+      <div class="email" id="user-email">—</div>
+      <button class="logout-btn" id="logout-btn">Log out</button>
+    </div>
+  </aside>
+
+  <main class="dash-main">
+    <div class="dash-header">
+      <span class="eyebrow">TEAM BUILDER</span>
+      <h1>Recommended Teams</h1>
+    </div>
+
+    <!-- CREATE PROJECT -->
+    <div class="dash-card">
+      <h2>Define a project</h2>
+      <p class="card-sub">Add each role and the skills it needs. We'll recommend the best-matching student per role.</p>
+
+      <form id="create-project-form">
+        <label>Project title</label>
+        <input type="text" id="p-title" required placeholder="e.g. Campus Event App">
+
+        <label>Description</label>
+        <input type="text" id="p-description" placeholder="Optional">
+
+        <div id="roles-container" style="margin-top: 22px;">
+          <!-- role rows added by JS -->
+        </div>
+        <button type="button" class="add-role-btn" id="add-role-btn">+ Add a role</button>
+
+        <button type="submit">Create project & get recommendations</button>
+        <p class="error-msg" id="project-error"></p>
+      </form>
+    </div>
+
+    <!-- RECOMMENDATION RESULTS -->
+    <div class="dash-card" id="results-card" style="display:none;">
+      <h2 id="results-title">Team Recommendation</h2>
+
+      <div class="coverage-banner">
+        <div class="coverage-number" id="coverage-number">—%</div>
+        <div>
+          <div class="coverage-label">Team skill coverage</div>
+          <p class="card-sub" style="margin-bottom:0;">Average of the best match per role.</p>
+        </div>
+      </div>
+
+      <div id="roles-results">
+        <!-- filled by JS -->
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/team.js"></script>
+</body>
+</html>

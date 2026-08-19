@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillProof — Employer Console</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="dash">
+
+  <aside class="dash-sidebar">
+    <div>
+      <div class="brand">
+        <span class="brand-mark">SP</span>
+        <span class="brand-name">SkillProof</span>
+      </div>
+      <nav class="dash-nav">
+        <span class="dash-nav-item active">Internships</span>
+      </nav>
+    </div>
+    <div class="dash-user">
+      <div class="email" id="user-email">Employer</div>
+      <button class="logout-btn" id="logout-btn">Log out</button>
+    </div>
+  </aside>
+
+  <main class="dash-main">
+    <div class="dash-header">
+      <span class="eyebrow">EMPLOYER PORTAL</span>
+      <h1>Internships</h1>
+    </div>
+
+    <!-- POST NEW INTERNSHIP -->
+    <div class="dash-card">
+      <h2>Post an internship</h2>
+      <p class="card-sub">List required and optional skills, separated by commas.</p>
+      <form id="create-internship-form">
+        <label>Title</label>
+        <input type="text" id="i-title" required placeholder="e.g. Java Backend Intern">
+
+        <label>Description</label>
+        <input type="text" id="i-description" placeholder="Short description">
+
+        <label>Required skills</label>
+        <input type="text" id="i-required" required placeholder="Java, Spring Boot, MySQL, REST API, Git">
+        <div class="chip-input-hint">Comma-separated</div>
+
+        <label>Optional skills</label>
+        <input type="text" id="i-optional" placeholder="AWS">
+        <div class="chip-input-hint">Comma-separated, optional</div>
+
+        <button type="submit">Post internship</button>
+        <p class="error-msg" id="internship-error"></p>
+      </form>
+    </div>
+
+    <!-- LIST OF MY INTERNSHIPS -->
+    <div class="dash-card" id="internships-card">
+      <h2>Your postings</h2>
+      <p class="card-sub">Click one to see explainable candidate matches.</p>
+      <div id="internships-list">
+        <!-- filled by JS -->
+      </div>
+    </div>
+
+    <!-- CANDIDATES VIEW (hidden until an internship is selected) -->
+    <div class="dash-card" id="candidates-card" style="display:none;">
+      <span class="back-link" id="back-to-list">← Back to postings</span>
+      <h2 id="candidates-title">Candidates</h2>
+      <p class="card-sub">Ranked by match score. Only verified skills count.</p>
+      <div id="candidates-list">
+        <!-- filled by JS -->
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/employer.js"></script>
+</body>
+</html>
