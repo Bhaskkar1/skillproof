@@ -1,12 +1,12 @@
 const token = localStorage.getItem('token');
 
 if (!token) {
-  window.location.href = 'login.html';
+  window.location.href = 'index.html';
 }
 document.getElementById('user-email').textContent = localStorage.getItem('email') || 'User';
 document.getElementById('logout-btn').addEventListener('click', () => {
   localStorage.clear();
-  window.location.href = 'login.html';
+  window.location.href = 'index.html';
 });
 
 let roleCount = 0;

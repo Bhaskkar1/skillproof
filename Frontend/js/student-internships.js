@@ -2,7 +2,7 @@ const token = localStorage.getItem("token");
 const role = localStorage.getItem("role");
 
 if (!token || role !== "student") {
-  window.location.href = "login.html";
+  window.location.href = "index.html";
 }
 
 document.getElementById("user-email").textContent =
@@ -10,7 +10,7 @@ document.getElementById("user-email").textContent =
 
 document.getElementById("logout-btn").addEventListener("click", () => {
   localStorage.clear();
-  window.location.href = "login.html";
+  window.location.href = "index.html";
 });
 
 async function loadInternships() {
