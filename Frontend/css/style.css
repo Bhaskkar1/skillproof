@@ -671,3 +671,30 @@ button:focus-visible { outline: 2px solid var(--verified); outline-offset: 2px; 
 .browse-internship-info { flex: 1; }
 .browse-internship-title { font-family: 'Fraunces', serif; font-size: 17px; margin-bottom: 4px; }
 .browse-internship-desc { font-size: 13.5px; color: var(--text-soft); margin-bottom: 10px; }
+@media (max-width: 700px) {
+  .inline-form {
+    grid-template-columns: 1fr;
+  }
+  .role-input-row {
+    grid-template-columns: 1fr;
+  }
+  .remove-role-btn {
+    width: 100%;
+  }
+  .candidate-row, .browse-internship-card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .queue-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .queue-actions {
+    width: 100%;
+  }
+  .queue-actions button {
+    flex: 1;
+  }
+}
