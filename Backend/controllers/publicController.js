@@ -45,7 +45,7 @@ const getPassportQR = async (req, res) => {
     }
 
     // This URL is what the QR code encodes — change domain later when deployed
-    const passportUrl = `http://localhost:5000/api/public/passport/${studentId}`;
+   const passportUrl = `https://skillprooff.netlify.app/public-passport.html?id=${studentId}`;
 
     const qrImage = await QRCode.toDataURL(passportUrl); // returns a base64 image string
 
