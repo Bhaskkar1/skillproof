@@ -53,9 +53,10 @@ async function loadQueue() {
 async function updateStatus(studentSkillId, status) {
   try {
     await apiRequest(`/issuer/verify/${studentSkillId}`, 'PATCH', { status }, token);
-    loadQueue(); // refresh the list after action
+    showToast(status === 'verified' ? 'Skill verified' : 'Skill revoked', status === 'verified' ? 'success' : 'error');
+    loadQueue();
   } catch (error) {
-    alert(error.message);
+    showToast(error.message, 'error');
   }
 }
 

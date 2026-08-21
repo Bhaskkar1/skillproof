@@ -72,8 +72,7 @@ form.addEventListener('submit', async (e) => {
         }
       );
 
-      alert('Registered successfully! Please log in.');
-
+     showToast('Registered successfully — please log in.');
       // Switch back to login mode
       toggleLink.click();
 
