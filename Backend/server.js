@@ -31,10 +31,25 @@ const InternshipSkill = require('./models/InternshipSkill');
 const Project = require('./models/Project');
 const Role = require('./models/Role');
 const RoleSkill = require('./models/RoleSkill');
-sequelize.sync().then(() =>  {
-  console.log("✅ Models synced with MySQL");
-});
+const startServer = async () => {
+    try {
+        await connectDB();
+        await sequelize.sync();
 
+        console.log("Models synced with MySQL");
+
+        const PORT = process.env.PORT || 5000;
+
+        app.listen(PORT, () => {
+            console.log(`Server started on http://localhost:${PORT}`);
+        });
+
+    } catch (error) {
+        console.error("Server startup failed:", error);
+    }
+};
+
+startServer();
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server started on http://localhost:${PORT}`);

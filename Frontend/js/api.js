@@ -1,4 +1,4 @@
-const API_BASE = 'https://skillproof-xvik.onrender.com/api';
+const API_BASE = 'https://skillproof-we3r.onrender.com/api';
 
 async function apiRequest(endpoint, method = 'GET', body = null, token = null) {
   const headers = { 'Content-Type': 'application/json' };
